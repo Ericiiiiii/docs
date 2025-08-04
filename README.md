@@ -4,10 +4,10 @@
 
 ## 📊 文档统计
 
-- **总文档数量**: 32 篇
-- **核心领域**: 驱动架构、通信协议、参数系统、仿真环境、系统工具
-- **特色内容**: 串口框架完整分析、串口注册流程详解、UAVCAN协议深度解析、MAVLink自定义消息实现
-- **硬件支持**: Fihawk FC-V1专用配置指南
+- **总文档数量**: 35 篇
+- **核心领域**: 驱动架构、通信协议、参数系统、GPS系统、仿真环境、系统工具
+- **特色内容**: 串口框架完整分析、串口注册流程详解、UAVCAN协议深度解析、MAVLink自定义消息实现、GPS配置参数流程详解
+- **硬件支持**: Fihawk FC-V1专用配置指南、RTK982 GPS集成
 
 ## 📚 文档索引
 
@@ -52,8 +52,11 @@
 - [PX4 YAML参数系统指南](PX4_YAML_Parameter_System_Guide.md) - YAML格式参数配置的使用指南
 
 ### 🛰️ GPS系统
-- [PX4 GPS运行逻辑详解](PX4_GPS_运行逻辑详解.md) - GPS模块的运行机制和逻辑分析
-- [PX4 GPS状态判断和事件处理](PX4_GPS状态判断和事件处理.md) - GPS状态管理和事件处理机制
+- [PX4 GPS_1_CONFIG参数判断流程详解](PX4_GPS_CONFIG_Parameter_Flow.md) - GPS配置参数的完整判断流程，从参数设置到串口绑定的全过程分析
+- [PX4 GPS运行状态流程](PX4_GPS_runningstateflow.md) - GPS模块的运行机制和状态流程分析
+- [PX4 GPS状态变化处理](PX4_GPSstatechange.md) - GPS状态管理和事件处理机制
+- [RTK982配置指南](RTK982_Configuration_Guide.md) - RTK982 GPS模块的配置和调试指南
+- [UM982 GPS验证指南](UM982_GPS_Verification_Guide.md) - UM982 RTK GPS的功能验证和测试方法
 
 ### 🎮 仿真环境
 - [PX4 SITL QGC连接指南](PX4_SITL_QGC_Connection_Guide.md) - SITL仿真与QGroundControl的连接配置
@@ -89,8 +92,9 @@
 推荐按以下顺序阅读：
 1. [PX4参数系统学习指南](PX4_Parameter_Study_README.md) - 了解PX4的基础配置
 2. [PX4串口框架概览](PX4_Serial_Framework_Overview.md) - 快速了解串口通信系统
-3. [PX4 SITL QGC连接指南](PX4_SITL_QGC_Connection_Guide.md) - 搭建仿真环境
-4. [PX4 MAVLink自定义消息指南](PX4_MAVLink_Custom_Messages_Guide.md) - 学习通信协议
+3. [PX4 GPS_1_CONFIG参数判断流程详解](PX4_GPS_CONFIG_Parameter_Flow.md) - 理解参数系统的实际应用
+4. [PX4 SITL QGC连接指南](PX4_SITL_QGC_Connection_Guide.md) - 搭建仿真环境
+5. [PX4 MAVLink自定义消息指南](PX4_MAVLink_Custom_Messages_Guide.md) - 学习通信协议
 
 ### 进阶开发
 深入学习特定领域：
@@ -98,7 +102,7 @@
 - **驱动开发**: SPI驱动架构 → I2C驱动框架 → ADC驱动框架 → CS引脚时序分析
 - **MAVLink开发**: MAVLink文件结构 → MAVLink启动流程 → 自定义消息指南
 - **UAVCAN开发**: 文档索引 → 正确实现指南 → ESC开发指南
-- **GPS集成**: GPS运行逻辑 → GPS状态判断和事件处理
+- **GPS系统集成**: GPS配置参数流程详解 → GPS运行状态流程 → RTK982配置指南 → UM982验证指南
 - **数据分析**: Replay原理解析 → Replay演示指南
 - **硬件分析**: Fihawk传感器控制频率分析 → Fihawk传感器问题分析
 
@@ -107,6 +111,9 @@
 - **Fihawk FC-V1**:
   - [Fihawk串口配置指南](Fihawk_Serial_Configuration.md) - 详细的硬件配置和使用方法
   - [Fihawk FC-V1传感器采集周期与控制频率分析](fihawk-fc-v1-sensor-control-frequencies.md) - 传感器采集周期、数据融合频率、控制频率和电机输出控制频率的详细分析
+- **RTK GPS模块**:
+  - [RTK982配置指南](RTK982_Configuration_Guide.md) - RTK982 GPS模块在PX4中的配置和调试
+  - [UM982 GPS验证指南](UM982_GPS_Verification_Guide.md) - UM982 RTK GPS的功能验证和性能测试
 
 ## 📝 贡献指南
 
