@@ -4,9 +4,9 @@
 
 ## 📊 文档统计
 
-- **总文档数量**: 35 篇
-- **核心领域**: 驱动架构、通信协议、参数系统、GPS系统、仿真环境、系统工具
-- **特色内容**: 串口框架完整分析、串口注册流程详解、UAVCAN协议深度解析、MAVLink自定义消息实现、GPS配置参数流程详解
+- **总文档数量**: 37 篇
+- **核心领域**: 驱动架构、通信协议、参数系统、GPS系统、仿真环境、系统工具、ROS2集成
+- **特色内容**: 串口框架完整分析、串口注册流程详解、UAVCAN协议深度解析、MAVLink自定义消息实现、GPS配置参数流程详解、PX4与任务计算机通信完整指南
 - **硬件支持**: Fihawk FC-V1专用配置指南、RTK982 GPS集成
 
 ## 📚 文档索引
@@ -45,6 +45,10 @@
 - [PX4 UAVCAN ESC使用指南](PX4_UAVCAN_ESC_Usage_Guide.md) - UAVCAN ESC的使用方法
 - [PX4 UAVCAN快速参考](PX4_UAVCAN_Quick_Reference.md) - UAVCAN协议的快速参考手册
 - [PX4 UAVCAN故障排除](PX4_UAVCAN_Troubleshooting.md) - UAVCAN常见问题的诊断和解决方案
+
+#### ROS2与任务计算机通信
+- [PX4飞控与任务计算机通信交互使用指南](PX4任务计算机通信指南.md) - PX4与任务计算机完整通信方案，包含ROS2、ROS1、MAVLink等多种通信方式的详细配置和应用示例
+- [PX4 ROS2快速入门指南](PX4_ROS2快速入门指南.md) - PX4通过ROS2进行通信的完整配置步骤，从环境搭建到实际控制的详细指南
 
 ### ⚙️ 参数系统
 - [PX4参数系统学习指南](PX4_Parameter_Study_README.md) - PX4参数系统的学习入门
@@ -94,12 +98,14 @@
 2. [PX4串口框架概览](PX4_Serial_Framework_Overview.md) - 快速了解串口通信系统
 3. [PX4 GPS_1_CONFIG参数判断流程详解](PX4_GPS_CONFIG_Parameter_Flow.md) - 理解参数系统的实际应用
 4. [PX4 SITL QGC连接指南](PX4_SITL_QGC_Connection_Guide.md) - 搭建仿真环境
-5. [PX4 MAVLink自定义消息指南](PX4_MAVLink_Custom_Messages_Guide.md) - 学习通信协议
+5. [PX4 ROS2快速入门指南](PX4_ROS2快速入门指南.md) - 学习现代化的ROS2通信方式
+6. [PX4飞控与任务计算机通信交互使用指南](PX4任务计算机通信指南.md) - 全面了解通信协议和集成方案
 
 ### 进阶开发
 深入学习特定领域：
 - **串口通信**: 串口框架概览 → 串口注册流程详解 → 串口框架完整文档 → Fihawk串口配置指南
 - **驱动开发**: SPI驱动架构 → I2C驱动框架 → ADC驱动框架 → CS引脚时序分析
+- **ROS2通信**: ROS2快速入门指南 → 任务计算机通信指南 → 实际应用开发
 - **MAVLink开发**: MAVLink文件结构 → MAVLink启动流程 → 自定义消息指南
 - **UAVCAN开发**: 文档索引 → 正确实现指南 → ESC开发指南
 - **GPS系统集成**: GPS配置参数流程详解 → GPS运行状态流程 → RTK982配置指南 → UM982验证指南
