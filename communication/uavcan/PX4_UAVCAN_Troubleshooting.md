@@ -18,14 +18,14 @@ dmesg | grep -i uavcan
 ### 2. 硬件检查
 
 ```bash
-# 检查CAN接口状态
-ls /dev/can*
+# PX4内置检查
+uavcan status -v
 
-# 查看CAN接口配置
-ip link show can0
+# 检查参数设置
+param show UAVCAN*
 
-# 检查CAN错误统计
-cat /proc/net/can/stats
+# 查看日志信息
+dmesg | grep -i can
 ```
 
 ## 常见问题及解决方案
@@ -91,11 +91,11 @@ reboot
 **诊断步骤**:
 
 ```bash
-# 检查CAN错误计数
-cat /proc/net/can/can0
+# 检查UAVCAN统计信息
+uavcan status
 
-# 监控CAN流量 (如果支持)
-candump can0
+# 查看节点信息
+uavcan info
 
 # 检查系统负载
 top
@@ -191,32 +191,31 @@ CAN_L: 2.5V ∓ 1V (差分信号)
 ### 网络分析
 
 ```bash
-# 如果支持SocketCAN
-# 安装can-utils
-apt-get install can-utils
+# PX4 UAVCAN调试
+# 查看详细状态
+uavcan status -v
 
-# 配置CAN接口
-ip link set can0 type can bitrate 1000000
-ip link set up can0
+# 监控节点活动
+uavcan info
 
-# 监控流量
-candump can0
+# 测试模式
+uavcan test
 
-# 发送测试消息
-cansend can0 123#DEADBEEF
+# 监听消息
+listener esc_status
 ```
 
 ### 日志分析
 
 ```bash
-# 查看详细日志
-dmesg | grep -i can
+# 查看详细日志  
+dmesg
 
-# 查看UAVCAN特定日志
-grep -i uavcan /var/log/messages
+# 查看启动日志
+cat /fs/microsd/bootlog.txt | grep -i uavcan
 
-# 实时监控日志
-tail -f /var/log/messages | grep -i uavcan
+# 实时监控(在QGC MAVLink控制台中)
+# 或使用PX4控制台的dmesg命令
 ```
 
 ## 性能优化
@@ -244,11 +243,11 @@ free -h
 ### CPU优化
 
 ```bash
-# 检查CPU使用率
+# 检查系统状态
 top
 
-# 调整任务优先级
-nice -n -10 px4
+# 查看任务状态
+ps
 ```
 
 ## 紧急恢复

@@ -31,7 +31,7 @@ private:
 #### 构造函数
 ```cpp
 UavcanFiHawkFlightDataBridge::UavcanFiHawkFlightDataBridge(uavcan::INode &node) :
-    UavcanSensorBridgeBase("uavcan_fihawk_flight_data", ORB_ID(sensor_mag)), // 需要创建自定义uORB话题
+    UavcanSensorBridgeBase("uavcan_fihawk_flight_data", ORB_ID(fihawk_flight_data)), // 使用正确的uORB话题
     _sub_flight_data(node)
 {
 }

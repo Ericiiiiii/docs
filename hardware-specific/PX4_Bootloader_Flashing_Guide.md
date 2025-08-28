@@ -121,8 +121,8 @@ cd build/[board]_bootloader
 ../../platforms/nuttx/Debug/upload_jlink_gdb.sh [board]_bootloader.elf
 
 # 例如：
-cd build/cuav_x7pro_bootloader
-../../platforms/nuttx/Debug/upload_jlink_gdb.sh cuav_x7pro_bootloader.elf
+cd build/fihawk_fc-v1_bootloader
+../../platforms/nuttx/Debug/upload_jlink_gdb.sh fihawk_fc-v1_bootloader.elf
 
 
 # 例如：

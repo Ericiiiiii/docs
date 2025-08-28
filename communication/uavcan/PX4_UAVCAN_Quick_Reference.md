@@ -64,7 +64,7 @@ candump can0           # 监控CAN总线 (如果支持)
 | `UAVCAN_NODE_ID` | 1-125 | 节点ID |
 | `UAVCAN_BITRATE` | 1000000 | 1Mbps波特率 |
 | `UAVCAN_EC_FUNC*` | 101-108 | 电机1-8 |
-| `UAVCAN_ESC_IDLT` | 15 | 四电机怠速 |
+| `UAVCAN_ESC_IDLT` | 1 | ESC怠速转速 |
 
 ## 硬件连接
 

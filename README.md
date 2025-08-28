@@ -1,149 +1,99 @@
-# PX4 学习文档
+# FihawkFlyCtrl 文档索引
 
-本目录包含PX4相关的学习文档和技术分析，涵盖驱动架构、通信协议、参数系统、仿真环境、系统工具等多个方面。
+基于PX4的Fihawk飞控系统技术文档集合，涵盖飞行控制、硬件驱动、通信协议、开发环境等完整技术栈。
 
-## 📊 文档统计
+## 🚁 核心飞行系统
 
-- **总文档数量**: 37 篇
-- **核心领域**: 驱动架构、通信协议、参数系统、GPS系统、仿真环境、系统工具、ROS2集成
-- **特色内容**: 串口框架完整分析、串口注册流程详解、UAVCAN协议深度解析、MAVLink自定义消息实现、GPS配置参数流程详解、PX4与任务计算机通信完整指南
-- **硬件支持**: Fihawk FC-V1专用配置指南、RTK982 GPS集成
+### 飞行控制系统
+- **[PX4四旋翼控制架构](flight-control/PX4_Quadcopter_Control_Architecture.md)** - 系统架构总览
+- **[飞行模式管理](flight-control/01_Flight_Mode_Management.md)** - 状态机与安全系统
+- **[路径规划导航](flight-control/02_Path_Planning_Navigation.md)** - 任务执行与航点导航
+- **[位置环控制](flight-control/03_Position_Control_Loop.md)** - 位置控制算法
+- **[姿态环控制](flight-control/04_Attitude_Control_Loop.md)** - 姿态控制算法
+- **[角速度环控制](flight-control/05_Rate_Control_Loop.md)** - 角速度控制算法
+- **[电机混控分配](flight-control/06_Motor_Mixing_Control_Allocation.md)** - 控制分配算法
 
-## 📚 文档索引
+### 数据融合与导航
+- **[数据融合系统](navigation-sensor/PX4四旋翼数据融合系统详解.md)** - EKF2算法详解
+- **[惯性导航系统](navigation-sensor/PX4四旋翼惯性导航系统详解.md)** - IMU导航算法
+- **[传感器标定系统](navigation-sensor/PX4四旋翼传感器标定系统详解.md)** - 标定算法与流程
+- **[EKF后处理系统](navigation-sensor/系统后处理和EKF后处理实现机制详解.md)** - 后处理技术分析
 
-### 🔧 驱动架构
+### GPS定位系统
+- **[GPS配置流程](gps-navigation/PX4_GPS_CONFIG_Parameter_Flow.md)** - GPS参数配置详解
+- **[GPS运行机制](gps-navigation/PX4_GPS_runningstateflow.md)** - GPS模块运行流程
+- **[RTK配置指南](gps-navigation/RTK982_Configuration_Guide.md)** - RTK GPS配置
+- **[UM982验证指南](gps-navigation/UM982_GPS_Verification_Guide.md)** - UM982 GPS测试
 
-#### 串口驱动系统
-- [PX4串口框架完整文档](PX4_Serial_Framework_Complete.md) - PX4串口框架的完整技术文档，涵盖架构设计、平台实现、配置系统等
-- [PX4串口框架概览](PX4_Serial_Framework_Overview.md) - PX4串口框架的快速入门和概览文档
-- [PX4串口注册流程详解](PX4_Serial_Registration_Process.md) - 从NuttX内核到设备节点创建的完整注册流程分析
-- [PX4串口注册快速参考](PX4_Serial_Registration_Quick_Reference.md) - 串口注册流程的快速参考手册
-- [Fihawk串口配置指南](Fihawk_Serial_Configuration.md) - Fihawk FC-V1飞控的串口配置详解
-- [PX4 UART驱动架构详解](PX4_Serial_Driver_Framework.md) - 从board配置到NuttX驱动的完整UART抽象层次分析
+## 🔧 底层系统
 
-#### 其他驱动系统
-- [PX4 SPI驱动架构详解](PX4_SPI_Driver_Architecture.md) - 从board配置到NuttX驱动的完整SPI抽象层次分析
-- [PX4 I2C驱动框架详解](PX4_I2C_Driver_Framework.md) - 从设备抽象到总线管理的完整I2C驱动架构分析
-- [PX4 ADC驱动框架详解](PX4_ADC_Driver_Framework.md) - 从硬件抽象层到应用层的完整ADC驱动架构分析
-- [SPI CS引脚时序分析](SPI_CS_Timing_Analysis.md) - SPI片选信号的时序控制和调试方法
+### 硬件驱动
+- **[串口驱动框架](drivers/PX4_Serial_Framework_Complete.md)** - 串口系统完整文档
+- **[SPI驱动架构](drivers/PX4_SPI_Driver_Architecture.md)** - SPI驱动系统
+- **[I2C驱动框架](drivers/PX4_I2C_Driver_Framework.md)** - I2C驱动系统
+- **[ADC驱动框架](drivers/PX4_ADC_Driver_Framework.md)** - ADC驱动系统
 
-### 📡 通信协议
+### 通信协议
+- **[MAVLink协议](communication/PX4_MAVLink_Custom_Messages_Guide.md)** - MAVLink自定义消息
+- **[UAVCAN协议](communication/uavcan/)** - UAVCAN协议文档集合
+- **[ROS2通信](communication/PX4_ROS2快速入门指南.md)** - ROS2集成指南
+- **[任务计算机通信](communication/PX4任务计算机通信指南.md)** - 完整通信方案
 
-#### MAVLink 协议
-- [PX4 MAVLink自定义消息指南](PX4_MAVLink_Custom_Messages_Guide.md) - MAVLink自定义消息的完整实现指南
-- [PX4 MAVLink文件结构指南](PX4_MAVLink_File_Structure_Guide.md) - MAVLink相关文件的组织结构和作用说明
-- [PX4 MAVLink启动流程](PX4_MAVLink_Startup_Process.md) - MAVLink模块的启动和初始化流程分析
-- [MAVLink自定义消息快速参考](MAVLink_Custom_Messages_Quick_Reference.md) - MAVLink自定义消息的快速参考手册
-- [MAVLink实现示例](MAVLink_Implementation_Example.md) - MAVLink协议的具体实现示例
+### 参数系统
+- **[参数系统学习指南](parameters/PX4_Parameter_Study_README.md)** - 参数系统入门
+- **[参数系统文档](parameters/PX4_Parameter_System_Documentation.md)** - 详细技术文档
+- **[YAML参数系统](parameters/PX4_YAML_Parameter_System_Guide.md)** - YAML参数配置
 
-#### UAVCAN 协议
-- [PX4 UAVCAN文档索引](PX4_UAVCAN_Documentation_Index.md) - UAVCAN相关文档的总索引
-- [PX4 UAVCAN正确实现指南](PX4_UAVCAN_Correct_Implementation_Guide.md) - UAVCAN协议的正确实现方法
-- [PX4 UAVCAN自定义集成示例](PX4_UAVCAN_Custom_Integration_Example.md) - UAVCAN自定义集成的实际案例
-- [PX4 UAVCAN自定义协议指南](PX4_UAVCAN_Custom_Protocol_Guide.md) - 如何开发UAVCAN自定义协议
-- [PX4 UAVCAN ESC开发指南](PX4_UAVCAN_ESC_Development_Guide.md) - UAVCAN ESC的开发详解
-- [PX4 UAVCAN ESC使用指南](PX4_UAVCAN_ESC_Usage_Guide.md) - UAVCAN ESC的使用方法
-- [PX4 UAVCAN快速参考](PX4_UAVCAN_Quick_Reference.md) - UAVCAN协议的快速参考手册
-- [PX4 UAVCAN故障排除](PX4_UAVCAN_Troubleshooting.md) - UAVCAN常见问题的诊断和解决方案
+## 🛠️ 开发环境
 
-#### ROS2与任务计算机通信
-- [PX4飞控与任务计算机通信交互使用指南](PX4任务计算机通信指南.md) - PX4与任务计算机完整通信方案，包含ROS2、ROS1、MAVLink等多种通信方式的详细配置和应用示例
-- [PX4 ROS2快速入门指南](PX4_ROS2快速入门指南.md) - PX4通过ROS2进行通信的完整配置步骤，从环境搭建到实际控制的详细指南
+### 快速开始
+- **[快速入门指南](development/Quick_Start_Guide.md)** - 新手开发环境搭建
+- **[开发环境配置](development/)** - 完整开发环境文档
 
-### ⚙️ 参数系统
-- [PX4参数系统学习指南](PX4_Parameter_Study_README.md) - PX4参数系统的学习入门
-- [PX4参数系统文档](PX4_Parameter_System_Documentation.md) - PX4参数系统的详细技术文档
-- [PX4 YAML参数系统指南](PX4_YAML_Parameter_System_Guide.md) - YAML格式参数配置的使用指南
+### 构建系统
+- **[构建系统概览](build-system/)** - CMake构建配置
+- **[CMake配置指南](build-system/CMake_Configuration_Guide.md)** - 详细构建配置
 
-### 🛰️ GPS系统
-- [PX4 GPS_1_CONFIG参数判断流程详解](PX4_GPS_CONFIG_Parameter_Flow.md) - GPS配置参数的完整判断流程，从参数设置到串口绑定的全过程分析
-- [PX4 GPS运行状态流程](PX4_GPS_runningstateflow.md) - GPS模块的运行机制和状态流程分析
-- [PX4 GPS状态变化处理](PX4_GPSstatechange.md) - GPS状态管理和事件处理机制
-- [RTK982配置指南](RTK982_Configuration_Guide.md) - RTK982 GPS模块的配置和调试指南
-- [UM982 GPS验证指南](UM982_GPS_Verification_Guide.md) - UM982 RTK GPS的功能验证和测试方法
+### 测试与调试
+- **[测试框架](testing/)** - 单元测试与集成测试
+- **[仿真环境](simulation/PX4_SITL_QGC_Connection_Guide.md)** - SITL仿真配置
+- **[故障排除](troubleshooting/)** - 常见问题解决方案
 
-### 🎮 仿真环境
-- [PX4 SITL QGC连接指南](PX4_SITL_QGC_Connection_Guide.md) - SITL仿真与QGroundControl的连接配置
-- [PX4 Replay演示指南](PX4_Replay_Demo_Guide.md) - PX4数据回放功能的使用演示
-- [PX4 Replay原理解析](PX4_Replay_Principles.md) - PX4数据回放功能的技术原理
+## 🔩 硬件平台
 
-### 🔧 系统工具
-- [PX4引导加载器刷写指南](PX4_Bootloader_Flashing_Guide.md) - PX4引导加载器的刷写方法和调试技巧
-- [SocketCAN距离传感器迁移](SocketCAN_Distance_Sensor_Migration.md) - 距离传感器从传统接口到SocketCAN的迁移指南
+### Fihawk FC-V1
+- **[硬件配置指南](hardware-specific/Fihawk_Hardware_Setup_Guide.md)** - 硬件连接与配置
+- **[串口配置](hardware-specific/Fihawk_Serial_Configuration.md)** - 串口接口配置
+- **[传感器分析](hardware-specific/Fihawk_Sensor_Issues_Analysis.md)** - 传感器问题诊断
+- **[控制频率分析](hardware-specific/fihawk-fc-v1-sensor-control-frequencies.md)** - 系统频率分析
+- **[Bootloader刷写](hardware-specific/PX4_Bootloader_Flashing_Guide.md)** - 固件烧录指南
 
-### 🔬 硬件分析
-- [Fihawk FC-V1传感器采集周期与控制频率分析](fihawk-fc-v1-sensor-control-frequencies.md) - 详细分析传感器采集周期、数据融合频率、控制频率和电机输出控制频率
-- [Fihawk传感器问题分析](Fihawk_Sensor_Issues_Analysis.md) - Fihawk FC-V1传感器相关问题的诊断和解决方案
-
-## 📖 文档特色
-
-### 🔍 深度技术分析
-每个文档都从源码层面深入分析PX4的实现机制，不仅介绍"是什么"，更重要的是解释"为什么"和"怎么做"。
-
-### 🛠️ 实用性强
-文档不仅有理论分析，还包含：
-- 实际代码示例和配置方法
-- 调试技巧和故障排除
-- 常见问题解决方案
-- 最佳实践建议
-
-### 📋 结构清晰
-采用分层次的文档结构，从概览到细节，便于不同层次的读者理解和查阅。
-
-## 🚀 快速导航
+## 📖 使用指南
 
 ### 新手入门
-推荐按以下顺序阅读：
-1. [PX4参数系统学习指南](PX4_Parameter_Study_README.md) - 了解PX4的基础配置
-2. [PX4串口框架概览](PX4_Serial_Framework_Overview.md) - 快速了解串口通信系统
-3. [PX4 GPS_1_CONFIG参数判断流程详解](PX4_GPS_CONFIG_Parameter_Flow.md) - 理解参数系统的实际应用
-4. [PX4 SITL QGC连接指南](PX4_SITL_QGC_Connection_Guide.md) - 搭建仿真环境
-5. [PX4 ROS2快速入门指南](PX4_ROS2快速入门指南.md) - 学习现代化的ROS2通信方式
-6. [PX4飞控与任务计算机通信交互使用指南](PX4任务计算机通信指南.md) - 全面了解通信协议和集成方案
+1. [快速入门指南](development/Quick_Start_Guide.md) - 环境搭建
+2. [PX4控制架构](flight-control/PX4_Quadcopter_Control_Architecture.md) - 系统概览
+3. [Fihawk硬件配置](hardware-specific/Fihawk_Hardware_Setup_Guide.md) - 硬件连接
 
-### 进阶开发
-深入学习特定领域：
-- **串口通信**: 串口框架概览 → 串口注册流程详解 → 串口框架完整文档 → Fihawk串口配置指南
-- **驱动开发**: SPI驱动架构 → I2C驱动框架 → ADC驱动框架 → CS引脚时序分析
-- **ROS2通信**: ROS2快速入门指南 → 任务计算机通信指南 → 实际应用开发
-- **MAVLink开发**: MAVLink文件结构 → MAVLink启动流程 → 自定义消息指南
-- **UAVCAN开发**: 文档索引 → 正确实现指南 → ESC开发指南
-- **GPS系统集成**: GPS配置参数流程详解 → GPS运行状态流程 → RTK982配置指南 → UM982验证指南
-- **数据分析**: Replay原理解析 → Replay演示指南
-- **硬件分析**: Fihawk传感器控制频率分析 → Fihawk传感器问题分析
+### 开发进阶
+1. [数据融合系统](navigation-sensor/PX4四旋翼数据融合系统详解.md) - 核心算法
+2. [驱动开发](drivers/) - 底层驱动
+3. [通信协议](communication/) - 通信接口
+4. [参数系统](parameters/) - 配置管理
 
-### 硬件特定
-针对特定硬件平台的配置和使用：
-- **Fihawk FC-V1**:
-  - [Fihawk串口配置指南](Fihawk_Serial_Configuration.md) - 详细的硬件配置和使用方法
-  - [Fihawk FC-V1传感器采集周期与控制频率分析](fihawk-fc-v1-sensor-control-frequencies.md) - 传感器采集周期、数据融合频率、控制频率和电机输出控制频率的详细分析
-- **RTK GPS模块**:
-  - [RTK982配置指南](RTK982_Configuration_Guide.md) - RTK982 GPS模块在PX4中的配置和调试
-  - [UM982 GPS验证指南](UM982_GPS_Verification_Guide.md) - UM982 RTK GPS的功能验证和性能测试
+### 问题解决
+1. [故障排除](troubleshooting/) - 常见问题
+2. [硬件诊断](hardware-specific/) - 硬件问题
+3. [测试调试](testing/) - 调试方法
 
-## 📝 贡献指南
+## 🔗 相关资源
 
-欢迎贡献新的文档或改进现有文档！请确保：
-
-### 内容要求
-1. **技术准确性**: 所有技术内容都应基于实际源码分析
-2. **结构清晰**: 使用清晰的标题层次和代码示例
-3. **实用性**: 包含实际的使用方法和调试技巧
-4. **更新及时**: 保持文档与最新代码版本同步
-
-### 文档规范
-- 使用Markdown格式编写
-- 代码示例要完整可运行
-- 包含必要的图表和流程图
-- 提供相关链接和参考资料
-
-## 📞 联系方式
-
-如有问题或建议，请通过以下方式联系：
-- 🐛 创建Issue讨论技术问题
-- 🔄 提交Pull Request贡献文档
-- 💬 在代码审查中提出改进建议
+- [PX4官方文档](https://dev.px4.io/) - PX4开发指南
+- [PX4用户手册](https://docs.px4.io/) - 用户使用手册
+- [MAVLink协议](https://mavlink.io/) - MAVLink官方文档
 
 ---
 
-> 💡 **提示**: 建议收藏本页面作为PX4学习的导航入口，所有文档都会在这里保持最新索引。
+> 💡 **提示**: 建议收藏本页面作为技术文档导航入口，所有文档都会在这里保持最新索引。
+
+> ⚠️ **注意**: 本文档基于PX4 v1.14版本，不同版本可能存在差异。
